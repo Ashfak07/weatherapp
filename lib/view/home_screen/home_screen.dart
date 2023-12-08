@@ -92,11 +92,39 @@ class _HomeScreenState extends State<HomeScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                                child: Image.asset(
-                                                  "assets/weather/${data.weather![0].icon}.png",
+                                            Container(
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(
+                                                        colors: [
+                                                          Color.fromARGB(255,
+                                                              190, 125, 205),
+                                                          Color.fromARGB(255,
+                                                              133, 109, 180),
+                                                          Color.fromARGB(
+                                                              255, 75, 6, 159)
+                                                        ],
+                                                        begin:
+                                                            Alignment.topLeft,
+                                                        end: Alignment
+                                                            .bottomRight),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color.fromARGB(
+                                                            255, 37, 37, 37),
+                                                        offset: Offset(
+                                                            2.0, 3), //(x,y)
+                                                        blurRadius: 2.0,
+                                                      )
+                                                    ]),
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Image.asset(
+                                                    "assets/weather/${data.weather![0].icon}.png",
+                                                  ),
                                                 )),
                                             Padding(
                                               padding:
@@ -137,7 +165,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 40,
                               ),
                               Container(
-                                height: 300,
+                                height: 310,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(30),
                                     gradient: LinearGradient(
@@ -175,12 +203,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ];
                                       return Padding(
                                         padding: const EdgeInsets.symmetric(
-                                            vertical: 15),
+                                            vertical: 14),
                                         child: Column(
                                           children: [
-                                            Image.asset(
-                                              iconsList[index],
-                                              height: 70,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  gradient: LinearGradient(
+                                                      colors: [
+                                                        Color.fromARGB(
+                                                            255, 190, 125, 205),
+                                                        Color.fromARGB(
+                                                            255, 133, 109, 180),
+                                                        Color.fromARGB(
+                                                            255, 133, 87, 192)
+                                                      ],
+                                                      begin: Alignment.topLeft,
+                                                      end: Alignment
+                                                          .bottomRight),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Color.fromARGB(
+                                                          255, 37, 37, 37),
+                                                      offset: Offset(
+                                                          2.0, 3), //(x,y)
+                                                      blurRadius: 2.0,
+                                                    )
+                                                  ]),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Image.asset(
+                                                  iconsList[index],
+                                                  height: 70,
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
                                             ),
                                             Center(
                                                 child: Text(
