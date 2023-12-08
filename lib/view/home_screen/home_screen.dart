@@ -164,9 +164,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: 3,
                                     itemBuilder: (context, index) {
                                       var values = [
-                                        "Cloudy\n${data.clouds!.all}",
-                                        "Humidity\n${data.main!.humidity}",
-                                        "Wind\n${data.wind!.speed} km/h"
+                                        "Cloudy-${data.clouds!.all}",
+                                        "Humidity-${data.main!.humidity}",
+                                        "Wind-${data.wind!.speed} km/h"
                                       ];
                                       var iconsList = [
                                         clouds,
