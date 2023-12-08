@@ -78,11 +78,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 child: Image.asset(
                                                   "assets/weather/${data.weather![0].icon}.png",
                                                 )),
-                                            Column(
-                                              children: [
-                                                Text(
-                                                    '${data.main!.temp}$degree'),
-                                              ],
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                      '${data.main!.temp}$degree'),
+                                                ],
+                                              ),
                                             )
                                           ],
                                         ),
