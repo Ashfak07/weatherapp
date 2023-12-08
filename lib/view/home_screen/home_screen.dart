@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 import 'package:weatherapp/controller/wheather_controller.dart';
 import 'package:weatherapp/models/current_weather_model.dart';
+import 'package:weatherapp/utils/Text_const.dart';
 import 'package:weatherapp/utils/images.dart';
 import 'package:weatherapp/utils/strings.dart';
 
@@ -48,7 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                           Color.fromARGB(255, 75, 6, 159)
                                         ],
                                         begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight)),
+                                        end: Alignment.bottomRight),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color.fromARGB(
+                                            255, 118, 114, 114),
+                                        offset: Offset(9.0, 9), //(x,y)
+                                        blurRadius: 2.0,
+                                      )
+                                    ]),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 15),
@@ -57,11 +66,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Icon(Icons.location_on_outlined),
-                                          Text(data.name.toString()),
+                                          Text(
+                                            data.name.toString(),
+                                            style: TextStyleConstants.heading3,
+                                          ),
                                           SizedBox(
                                             width: 15,
                                           ),
-                                          Text(formattedTime.toString())
+                                          SizedBox(
+                                            width: 100,
+                                          ),
+                                          Text(
+                                            formattedTime.toString(),
+                                            style: TextStyleConstants.heading4,
+                                          )
                                         ],
                                       ),
                                       SizedBox(
@@ -71,6 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 35),
                                         child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
                                             ClipRRect(
                                                 borderRadius:
@@ -84,7 +104,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: Column(
                                                 children: [
                                                   Text(
-                                                      '${data.main!.temp}$degree'),
+                                                    '${data.main!.temp}$degree',
+                                                    style: TextStyleConstants
+                                                        .heading3,
+                                                  ),
                                                 ],
                                               ),
                                             )
@@ -97,7 +120,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Row(
                                         children: [
                                           Icon(Icons.calendar_month),
-                                          Text(formattedDate.toString())
+                                          SizedBox(
+                                            width: 7,
+                                          ),
+                                          Text(
+                                            formattedDate.toString(),
+                                            style: TextStyleConstants.heading5,
+                                          )
                                         ],
                                       )
                                     ],
@@ -118,7 +147,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                           Color.fromARGB(255, 75, 6, 159)
                                         ],
                                         begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight)),
+                                        end: Alignment.bottomRight),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color.fromARGB(
+                                            255, 118, 114, 114),
+                                        offset: Offset(9.0, 9), //(x,y)
+                                        blurRadius: 2.0,
+                                      )
+                                    ]),
                                 child: GridView.builder(
                                     gridDelegate:
                                         SliverGridDelegateWithFixedCrossAxisCount(
@@ -127,9 +164,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: 3,
                                     itemBuilder: (context, index) {
                                       var values = [
-                                        "${data.clouds!.all}",
-                                        "${data.main!.humidity}",
-                                        "${data.wind!.speed} km/h"
+                                        "Cloudy\n${data.clouds!.all}",
+                                        "Humidity\n${data.main!.humidity}",
+                                        "Wind\n${data.wind!.speed} km/h"
                                       ];
                                       var iconsList = [
                                         clouds,
@@ -145,7 +182,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               iconsList[index],
                                               height: 70,
                                             ),
-                                            Text(values[index])
+                                            Center(
+                                                child: Text(
+                                              values[index],
+                                              style:
+                                                  TextStyleConstants.heading5,
+                                            ))
                                           ],
                                         ),
                                       );
